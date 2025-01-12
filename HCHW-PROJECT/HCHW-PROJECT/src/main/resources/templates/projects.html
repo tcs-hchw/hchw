@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Project List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Project List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Funding</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="project : ${projects}">
+                <td th:text="${project.id}"></td>
+                <td th:text="${project.name}"></td>
+                <td th:text="${project.description}"></td>
+                <td th:text="${project.status}"></td>
+                <td th:text="${project.startDate}"></td>
+                <td th:text="${project.endDate}"></td>
+                <td th:text="${project.currentFunding} + ' / ' + ${project.requiredFunding}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
